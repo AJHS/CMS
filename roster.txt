@@ -1,0 +1,4 @@
+This file is a way for you to confirm that you have GitHub setup. Just add yourself to the file using the method described in the GettingStartedWithGitHub.docx document.
+
+NAME			USERNAME	FAV_FOOD
+Palmer Paul		pzp1997		Pizza
