@@ -37,60 +37,63 @@ app.get('/', function (req, res) {
 app.post('/signup', function (req, res) {
     User.findOne({'uname': req.body.uname}, function(err, user) {
         if (err) {
-            res.send(resp('Something went wrong...', 'Your account was not created.'));
+            res.send(resHtml('Something went wrong...', 'Your account was not created.'));
         } else if (user !== null) {
-            res.send(resp('Uh-oh', 'Someone already has the username ' + req.body.uname + '.'));
+            res.send(resHtml('Uh-oh!', 'Someone already has the username ' + req.body.uname + '.'));
         } else {
             crypto.randomBytes(32, function (ex, buf) {
                 if (ex) throw ex;
 
-                user = new User({
-                    uname: req.body.uname,
-                    passwd: hash(req.body.passwd, buf),
-                    salt: buf,
-                    name: {
-                        first: req.body.fname,
-                        last: req.body.lname
-                    }
-                });
+                var salt_ = buf.toString('hex');
+                crypto.pbkdf2(req.body.passwd, salt_, 10000, 64, function (err, derivedKey) {
+                    if (err) throw err;
 
-                user.save(function (err, user) {
-                    if (err) {
-                        res.send(resp('Something went wrong...', 'Your account was not created.'));
-                    }
-                    res.send(resp('Success!', 'Your account was created.'));
-                });
+                    user = new User({
+                        uname: req.body.uname,
+                        passwd: derivedKey.toString('hex'),
+                        salt: salt_,
+                        name: {
+                            first: req.body.fname,
+                            last: req.body.lname
+                        }
+                    });
 
-                console.log('POST /signup: ' + req.body.uname);
+                    user.save(function (err, user) {
+                        if (err) {
+                            res.send(resHtml('Something went wrong...', 'Your account was not created.'));
+                        }
+                        res.send(resHtml('Success!', 'Your account was created.'));
+                    });
+                });
             });
         }
     });
+    console.log('POST /signup: ' + req.body.uname);
 });
 
 // Receives signin credentials and uses it to access user's data
 app.post('/login', function (req, res) {
     User.findOne({'uname': req.body.uname}, function(err, user) {
         if (err) {
-            res.send(resp('Error :(', 'Could not sign in at this time.'));
-        } else if (user === null || hash(req.body.passwd, user.salt) != user.passwd) {
-            res.send(resp('Error :(', 'Incorrect username or password.'));
+            res.send(resHtml('Error :(', 'Could not sign in at this time.'));
+        } else if (user === null) {
+            res.send(resHtml('Error :(', 'Incorrect username or password.'));
         } else {
-            res.send(resp(user.uname, user.name.first + ' ' + user.name.last));
+            crypto.pbkdf2(req.body.passwd, user.salt, 10000, 64, function (err, derivedKey) {
+                if (err) throw err;
+
+                if (derivedKey.toString('hex') == user.passwd) {
+                    res.send(resHtml(user.uname, user.name.first + ' ' + user.name.last));
+                } else {
+                    res.send(resHtml('Error :(', 'Incorrect username or password.'));
+                }
+            });
         }
     });
     console.log('POST /login: ' + req.body.uname);
 });
 
-// FUNCTIONS
 // Creates response pages
-function resp(h2, p) {
+function resHtml(h2, p) {
     return '<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>DB Test</title></head><body><h2>' + h2 + '</h2><p>' + p + '</p></body></html>';
-}
-
-// Hashes passwords
-function hash(text, salt) {
-    crypto.pbkdf2(text, salt, 10000, 64, function (err, derivedKey) {
-        if (err) throw err;
-        return derivedKey;
-    });
 }
