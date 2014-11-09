@@ -7,26 +7,29 @@
 
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+        <style type="text/css">
+            .container { width: 50% }
+        </style>
     </head>
 
     <body>
-        <div class="container">
+        <div class="container pull-left">
             <h2>Sign up</h2>
             <form method="post" action="/signup">
                 <div class="form-group">
-                    <label>First name<input type="text" name="fname" class="form-control" placeholder="John" /></label>
+                    <label>First name<input type="text" name="fname" class="form-control" placeholder="John"></label>
                 </div>
 
                 <div class="form-group">
-                    <label>Last name<input type="text" name="lname" class="form-control" placeholder="Smith" /></label>
+                    <label>Last name<input type="text" name="lname" class="form-control" placeholder="Smith"></label>
                 </div>
 
                 <div class="form-group">
-                    <label>Username<input type="text" name="uname" class="form-control" /></label>
+                    <label>Username<input type="text" name="uname" class="form-control" placeholder="jsmith"></label>
                 </div>
 
                 <div class="form-group">
-                    <label>Password<input type="password" name="passwd" class="form-control" /></label>
+                    <label>Password<input type="password" name="passwd" class="form-control" placeholder="passWord123"></label>
                 </div>
 
                 <div class="form-group">
@@ -35,15 +38,15 @@
             </form>
         </div>
 
-        <div class="container">
+        <div class="container pull-right">
             <h2>Login</h2>
             <form method="post" action="/login">
                 <div class="form-group">
-                    <label>Username<input type="text" name="uname" class="form-control" /></label>
+                    <label>Username<input type="text" name="uname" class="form-control"></label>
                 </div>
 
                 <div class="form-group">
-                    <label>Password<input type="password" name="passwd" class="form-control" /></label>
+                    <label>Password<input type="password" name="passwd" class="form-control"></label>
                 </div>
 
                 <div class="form-group">
