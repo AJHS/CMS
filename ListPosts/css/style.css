@@ -1,0 +1,24 @@
+.post {
+    color: white;
+    background-color: #333333;
+    border: 5px solid #333333;
+    border-radius: 15px;
+    margin: 10px;
+    font-family: Arial, sans-serif
+}
+a:hover {
+    text-decoration: none;
+    font-weight: bold
+}
+.post > h2 {
+    margin: 10px 0px 0px 10px
+}
+.post > h3 {
+    margin: 0px 0px 10px 10px
+}
+#blogname {
+    text-align: center
+}
+#blogname > h3 {
+    margin-top: -5px
+}
