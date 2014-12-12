@@ -1,7 +1,10 @@
+body {
+    background-color: #000
+}
 .post {
-    color: white;
-    background-color: #333333;
-    border: 5px solid #333333;
+    color: #fff;
+    background-color: #333;
+    border: 5px solid #333;
     border-radius: 15px;
     margin: 10px;
     font-family: Arial, sans-serif
@@ -17,6 +20,7 @@ a:hover {
     margin: 0px 0px 10px 10px
 }
 #blogname {
+    color: #fff;
     text-align: center
 }
 #blogname > h3 {
