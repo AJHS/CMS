@@ -5,4 +5,4 @@ Go to https://github.com/AJHS/CMS/blob/master/roster.txt to see if you were succ
 NAME			USERNAME		FAV_FOOD
 Palmer Paul		pzp1997			Pizza
 Simone Stern		fluffiestever		Caramel
-Zachary Lindenbaum zachary123212 the souls of infants
+Zachary Lindenbaum 	zachary123212 		the souls of infants

@@ -1,14 +1,12 @@
 // Load dependencies
 var express = require('express');
 var bodyParser = require('body-parser');
-//var session = require('express-session');
 var mongoose = require('mongoose');
 var crypto = require('crypto');
 
 // Configure app
 var app = express();
 app.use(bodyParser.urlencoded({extended: true}));
-//app.use(session());
 var server = app.listen(8000, function () {
     console.log('Server running at http://' + server.address().address + ':' + server.address().port);
 });
@@ -25,16 +23,6 @@ var userSchema = mongoose.Schema({
         last: String
     }
 });
-
-/*
-var blogSchema = mongoose.Schema({
-    name: String,
-    tags: [String],
-    canEdit: [ObjectId],
-    searchable: Boolean,
-    followers: [ObjectId]
-});
-*/
 
 var User = mongoose.model('User', userSchema);
 
