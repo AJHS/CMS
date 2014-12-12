@@ -1,10 +1,10 @@
 body {
-    background-color: #000
+    background-color: #222
 }
 .post {
     color: #fff;
-    background-color: #333;
-    border: 5px solid #333;
+    background-color: #444;
+    border: 5px solid #444;
     border-radius: 15px;
     margin: 10px;
     font-family: Arial, sans-serif

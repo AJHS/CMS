@@ -19,6 +19,6 @@ $(document).ready(function() {
 
     var $hlines = $("#hlines");
     for (var i = 0; i < posts.length; i++) {
-        $hlines.append("<div class=\"post\"><h2><a href=\"www.google.com\">" + posts[i].title + "</a></h2><h3><em>" + posts[i].sub + "</em></h3></div>");
+        $hlines.append("<div class=\"post\"><h2><a href=\"http://www.google.com\">" + posts[i].title + "</a></h2><h3><em>" + posts[i].sub + "</em></h3></div>");
     }
 });
