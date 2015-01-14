@@ -1,0 +1,30 @@
+body {
+    background-color: #fff
+}
+.post {
+    color: #000;
+    margin: 10px;
+    font-family: Arial, sans-serif
+}
+a:hover {
+    text-decoration: none;
+    font-weight: bold
+}
+.post > h2 {
+    margin: 10px 0px 0px 10px
+}
+.post > h3 {
+    margin: 0px 0px 10px 10px
+}
+#blogname {
+    color: #000;
+    text-align: center
+}
+#blogname > h3 {
+    margin-top: -5px
+}
+.line-separator {
+    height:1px;
+    background:#717171;
+    border-bottom:1px solid #313030
+}
