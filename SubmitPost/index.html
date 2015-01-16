@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>SubmitPost</title>
+
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+        <link type="text/css" rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <h2>Submit Post</h2>
+            <form method="post" action="/postSubmit" id="postForm">
+                <div class="form-group">
+                    <label>Title<input type="text" name="title" class="form-control"></label>
+                </div>
+
+                <div class="form-group" id="contentTextArea">
+                    <label>Post<textarea name="content" class="form-control" cols="600" rows="15"></textarea></label>
+                </div>
+
+                <div class="form-group" id="buttonArea">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
