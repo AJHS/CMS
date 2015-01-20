@@ -1,6 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var sanitizeHtml = require('sanitize-html');
+var marked = require('marked');
 
 var app = express();
 app.use(bodyParser.urlencoded({extended: true}));
@@ -14,7 +16,8 @@ var postSchema = mongoose.Schema({
     title: String,
     content: String,
     date: Date,
-    author: String
+    author: String,
+    views: Number
 });
 
 var Post = mongoose.model('Post', postSchema);
@@ -26,10 +29,11 @@ app.get('/', function (req, res) {
 
 app.post('/postSubmit', function (req, res) {
     post = new Post({
-        title: req.body.title,
-        content: req.body.content,
+        title: sanitizeHtml(req.body.title),
+        content: marked(sanitizeHtml(req.body.content)),
         date: Date.now(),
-        author: "Palmer Paul"
+        author: sanitizeHtml(req.body.author),
+        views: 0
     });
 
     post.save(function (err, user) {

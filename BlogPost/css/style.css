@@ -1,0 +1,19 @@
+body {
+    background-color: #fff
+}
+#content {
+    color: #333;
+    margin: 0 15% 0 10%;
+    /* text-align: justify; */
+    font-family: Arial, sans-serif
+}
+#content > h3 {
+    margin-top: -10px;
+    margin-bottom: 20px
+}
+#content > p {
+    font-size: 18px
+}
+#disqus_thread {
+    margin: 0 15% 0 10%
+}
