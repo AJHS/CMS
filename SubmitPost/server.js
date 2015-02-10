@@ -22,12 +22,27 @@ var postSchema = mongoose.Schema({
 
 var Post = mongoose.model('Post', postSchema);
 
-app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/index.html');
-    console.log('GET /index.html');
+app.get('/post', function (req, res) {
+    console.log(req.query);
+    Post.findOne({'_id': req.query.postid}, function (err, post) {
+        if (err) {
+            res.send(resHtml('Error :(', 'Could not search DB at this time.'));
+        } else if (post === null) {
+            res.send(resHtml('Error :(', 'There are no posts with the ID: ' + req.query.postid));
+        } else {
+            post.views++;
+            res.send('<!DOCTYPE html><html lang="en"><head><meta name="viewport" content="width=device-width, initial-scale=1"><title>' + post.title + '</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"><link type="text/css" rel="stylesheet" href="css/style-view.css"><script src="http://code.jquery.com/jquery-2.1.1.min.js"></script><script type="text/javascript" src="js/main.js"></script></head><body><div class="container"><div id="content"><h1>' + post.title + '</h1><h3>by ' + post.author + '</h3><p>' + post.content + '</p></div></div><div class="container"><div id="disqus_thread"></div></div><script type="text/javascript">var disqus_shortname = "social-blogging";var disqus_identifier = ' + post._id + ';(function() {var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;dsq.src = "//" + disqus_shortname + ".disqus.com/embed.js";(document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></body></html>');
+        }
+    });
+    console.log('POST /post: ' + req.query.postid);
 });
 
-app.post('/postSubmit', function (req, res) {
+app.get('/submitPost', function (req, res) {
+    res.sendFile(__dirname + '/index.html');
+    console.log('GET submitPost/index.html');
+});
+
+app.post('/submitPost', function (req, res) {
     post = new Post({
         title: sanitizeHtml(req.body.title),
         content: marked(sanitizeHtml(req.body.content)),
@@ -36,11 +51,11 @@ app.post('/postSubmit', function (req, res) {
         views: 0
     });
 
-    post.save(function (err, user) {
+    post.save(function (err, post) {
         if (err) {
             res.send(resHtml('Something went wrong...', 'Your post was not created.'));
         }
-        res.send(resHtml('Success!', 'Your post was created.'));
+        res.send(resHtml('Success!', 'Your post was created and has ID: ' + post._id));
     });
     console.log('POST /submitPost: ' + req.body.title);
 });
