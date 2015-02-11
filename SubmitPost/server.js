@@ -3,6 +3,10 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var sanitizeHtml = require('sanitize-html');
 var marked = require('marked');
+var jade = require('jade');
+
+//jade file compilation
+var fn = jade.compileFile('index.jade', option);
 
 var app = express();
 app.use(bodyParser.urlencoded({extended: true}));
@@ -38,7 +42,7 @@ app.get('/post', function (req, res) {
 });
 
 app.get('/submitPost', function (req, res) {
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile(__dirname + /*'/index.html'*/fn());
     console.log('GET submitPost/index.html');
 });
 
@@ -63,3 +67,8 @@ app.post('/submitPost', function (req, res) {
 function resHtml(h2, p) {
     return '<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SubmitPost</title></head><body><h2>' + h2 + '</h2><p>' + p + '</p></body></html>';
 }
+/*
+app.get('/post', function(req, res){
+
+});
+*/
