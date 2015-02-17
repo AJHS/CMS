@@ -1,0 +1,29 @@
+doctype html
+html(lang="en")
+  head
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title SubmitPost
+
+    link(rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css")
+    link(rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap-theme.min.css")
+    link(href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css')
+    link(type="text/css" rel="stylesheet" href="css/style.css")
+
+  body
+    div.container
+      h2 Submit Post
+      form#postForm(method="post" action="/submitPost")
+        div.form-group
+          label Title
+            input(type="text" name="title" class="form-control")
+
+        div.form-group
+          label Author
+            input(type="text" name="author" class="form-control")
+
+        div.form-group#contentTextArea
+          label Post
+            textarea(name="content" class="form-control" cols="600" rows="15")
+
+        div.form-group#buttonArea
+          button(type="submit" class="btn btn-primary") Submit
