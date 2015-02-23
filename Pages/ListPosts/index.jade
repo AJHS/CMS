@@ -1,0 +1,14 @@
+extends layout
+
+block resource
+  link(type="text/css" rel="stylesheet" href="css/style1.css")
+      
+block content
+  .container
+    h2= name
+  .container
+    each val in posts
+      .post
+        h2: a(href="http://www.google.com") val.title
+        h3: em val.sub
+      .line-seperator

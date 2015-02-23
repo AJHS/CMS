@@ -4,7 +4,8 @@ var router = express.Router();
 var path = require('path');
 var sanitizeHtml = require('sanitize-html');
 var marked = require('marked');
-var Post = require('../models/post');
+
+var Post = require('../models/index').Post;
 
 router.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, '../public', 'submitPost.html'));
