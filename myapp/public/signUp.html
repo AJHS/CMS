@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Sign Up</title>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <h2>Sign up</h2>
+            <form method="post" action="/signup">
+                <div class="form-group">
+                    <label>First name<input type="text" name="fname" class="form-control" placeholder="John"></label>
+                </div>
+
+                <div class="form-group">
+                    <label>Last name<input type="text" name="lname" class="form-control" placeholder="Smith"></label>
+                </div>
+
+                <div class="form-group">
+                    <label>Email<input type="email" name="email" class="form-control" placeholder="john.smith@abc.com"></label>
+                </div>
+
+                <div class="form-group">
+                    <label>Username<input type="text" name="uname" class="form-control" placeholder="jsmith"></label>
+                </div>
+
+                <div class="form-group">
+                    <label>Password<input type="password" name="passwd" class="form-control" placeholder="passWord123"></label>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default">Sign Up</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

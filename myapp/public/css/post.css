@@ -4,7 +4,6 @@ body {
 #content {
     color: #333;
     margin: 0 15% 0 10%;
-    /* text-align: justify; */
     font-family: Arial, sans-serif
 }
 #content > h3 {

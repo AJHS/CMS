@@ -1,18 +1,16 @@
-var express = require('express');
-var router = express.Router();
+var router = require('express').Router();
 
-var path = require('path');
 var sanitizeHtml = require('sanitize-html');
 var marked = require('marked');
 
 var Post = require('../models/index').Post;
 
 router.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, '../public', 'submitPost.html'));
+    res.sendFile(require('path').join(__dirname, '../public', 'submitPost.html'));
 });
 
 router.post('/', function (req, res) {
-    post = new Post({
+    var post = new Post({
         title: sanitizeHtml(req.body.title),
         content: marked(sanitizeHtml(req.body.content)),
         date: Date.now(),
@@ -21,8 +19,14 @@ router.post('/', function (req, res) {
     });
 
     post.save(function (err, post) {
-        if (!err) {
-            res.redirect('/post?postid=' + post._id);
+        if (err) {
+            res.status(500);
+            res.render('error', {
+                message: 'Internal Server Error',
+                error: err
+            });
+        } else {
+            res.redirect(303, '/post?postid=' + post._id);
         }
     });
 });

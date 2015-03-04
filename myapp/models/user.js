@@ -3,6 +3,7 @@ module.exports = function(conn) {
         uname: {type: String, index: true},
         passwd: String,
         salt: String,
+        email: String,
         name: {
             first: String,
             last: String

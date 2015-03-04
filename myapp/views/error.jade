@@ -1,9 +1,10 @@
 extends layout
 
 append includeFiles
-  link(type="text/css" rel="stylesheet" href="css/style.css")
+  link(type="text/css" rel="stylesheet" href="/css/style.css")
 
 block content
   h1= message
   h2= error.status
-  pre #{error.stack}
+  if error.stack
+    pre #{error.stack}
