@@ -22,12 +22,19 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ADD ROUTES TO MIDDLEWARE STACK
+var routes = require('fs').readdirSync(__dirname + '/routes');
+for (var i = 0; i < routes.length; i++) {
+  var routeName = routes[i].slice(0, routes[i].lastIndexOf('.'));
+  app.use('/' + ((routeName === 'index') ? '' : routeName), require('./routes/' + routeName));
+}
+/*
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 app.use('/post', require('./routes/post'));
 app.use('/submitPost', require('./routes/submitPost'));
 app.use('/user', require('./routes/user'));
 app.use('/signUp', require('./routes/signUp'));
+*/
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
