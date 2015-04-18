@@ -11,27 +11,53 @@
     </head>
 
     <body>
-        <div class="container">
-            <div class="page-header">
-                <h1>Submit Post</h1>
+        <section id="home" data-speed="5" data-type="background">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Submit Post</h1>
+                </div>
+                <form method="post" action="/submitPost" id="postForm">
+                    <div class="form-group">
+                        <label>Title<input type="text" name="title" class="form-control"></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Author<input type="text" name="author" class="form-control"></label>
+                    </div>
+
+                    <div class="form-group" id="contentTextArea">
+                        <label>Post<textarea name="content" class="form-control" cols="600" rows="15"></textarea></label>
+                    </div>
+
+                    <div class="form-group" id="buttonArea">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
             </div>
-            <form method="post" action="/submitPost" id="postForm">
-                <div class="form-group">
-                    <label>Title<input type="text" name="title" class="form-control"></label>
-                </div>
-
-                <div class="form-group">
-                    <label>Author<input type="text" name="author" class="form-control"></label>
-                </div>
-
-                <div class="form-group" id="contentTextArea">
-                    <label>Post<textarea name="content" class="form-control" cols="600" rows="15"></textarea></label>
-                </div>
-
-                <div class="form-group" id="buttonArea">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-            </form>
-        </div>
+        </section>
+        <script type="text/javascript" src="../../Resources/jquery-2.1.3.min.js"></script>
+        <script>
+            $(document).ready(function(){
+               // cache the window object
+               $window = $(window);
+             
+               $('section[data-type="background"]').each(function(){
+                 // declare the variable to affect the defined data-type
+                 var $scroll = $(this);
+                                 
+                  $(window).scroll(function() {
+                    // HTML5 proves useful for helping with creating JS functions!
+                    // also, negative value because we're scrolling upwards                             
+                    var yPos = -($window.scrollTop() / $scroll.data('speed')); 
+                     
+                    // background position
+                    var coords = '50% '+ yPos + 'px';
+             
+                    // move the background
+                    $scroll.css({ backgroundPosition: coords });    
+                  }); // end window scroll
+               });  // end section function
+            }); // close out script
+        </script>
     </body>
 </html>
