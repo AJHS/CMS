@@ -11,7 +11,7 @@ textarea {
 #home { 
     background: url(../../../Resources/background.jpg) 50% 0 fixed; 
     height: auto;  
-    margin: 0 auto; 
+    margin: 0; 
     width: 100%; 
     position: relative; 
     box-shadow: 0 0 50px rgba(0,0,0,0.8);
