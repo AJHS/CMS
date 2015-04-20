@@ -9,10 +9,10 @@ var post = function (title, sub) {
 };
 
 var posts = [];
-posts.push(new post("Title", "a title"));
-posts.push(new post("Not title", "not a title"));
-posts.push(new post("Definitely not a title", "a title"));
-posts.push(new post("Title?", "no"));
+posts.push(new post("Lorem Ipsum", "Nam ut massa convallis, feugiat augue gravida"));
+posts.push(new post("Dolor Sit", "Nam ut massa convallis, feugiat augue gravida"));
+posts.push(new post("Amet Consectetur", "Nam ut massa convallis, feugiat augue gravida"));
+posts.push(new post("Adipiscing Elit", "Nam ut massa convallis, feugiat augue gravida"));
 
 $(document).ready(function() {
     $("#blogname").html("<h2>" + blog.name + "</h2><h3>by " + blog.author + "</h3>");
