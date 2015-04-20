@@ -10,10 +10,8 @@ textarea {
 
 #home { 
     background: url(../../../Resources/background.jpg) 50% 0 fixed; 
-    height: auto;  
-    margin: 0; 
-    width: 100%; 
-    position: relative; 
+    max-width:100%;
+    max-height:100%;
     box-shadow: 0 0 50px rgba(0,0,0,0.8);
     padding: 100px 0;
 }
