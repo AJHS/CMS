@@ -1,5 +1,5 @@
 #Roster
-This file is a way for you to confirm that you have GitHub setup. Just add yourself to the file using the method described in the GSWGitHub document. Go to https://github.com/AJHS/CMS/blob/master/roster.txt to see if you were successful.
+This file is a way for you to confirm that you have GitHub setup. Just add yourself to the file using the method described in the GSWGitHub document. Go to https://github.com/AJHS/CMS/blob/master/roster.md to see if you were successful.
 
 |Name|Username|Favorite Food|
 |:---------|:----------|:-----------|
