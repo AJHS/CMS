@@ -19,6 +19,7 @@ $(document).ready(function() {
 
     var $hlines = $("#hlines");
     for (var i = 0; i < posts.length; i++) {
-        $hlines.append("<div class=\"post\"><h2><a href=\"http://www.google.com\">" + posts[i].title + "</a></h2><h3><em>" + posts[i].sub + "</em></h3></div><div class=\"line-separator\"></div>");
+        $hlines.append("<div class=\"post\"><div class=\"panel panel-default\"><h3 class=\"panel-body\">" + posts[i].title + "</h3><div class=\"panel-footer\">" + posts[i].sub + "</div></div></div>");
     }
 });
+
