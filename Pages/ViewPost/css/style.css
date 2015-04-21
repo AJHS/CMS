@@ -1,32 +1,28 @@
 body {
-    background-color: #fff
+  color: #333333;
+  font-family: Arial, sans-serif
 }
-#content {
-    color: #333;
-    margin: 0 15% 0 10%;
-    /* text-align: justify; */
-    font-family: Arial, sans-serif
+h3 {
+  margin-top: -10px;
+  margin-bottom: 20px
 }
-#content > h3 {
-    margin-top: -10px;
-    margin-bottom: 20px
+p {
+  font-size: 18px
 }
-#content > p {
-    font-size: 18px
+.parallax {
+  background-color: #333333;
+  background-image: url(../../../Resources/background.jpg);
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+  padding: 100px 0
 }
-#disqus_thread {
-    margin: 0 15% 0 10%
-}
-
-#home { 
-    background: url(../../../Resources/background.jpg) 50% 0 fixed; 
-    max-width:100%;
-    max-height:100%;
-    box-shadow: 0 0 50px rgba(0,0,0,0.8);
-    padding: 100px 0;
-}
-
-.container{
-	background-color: #FFF;
-	border-radius: 15px;
+.container {
+  background-color: #FFFFFF;
+  border-radius: 15px
 }

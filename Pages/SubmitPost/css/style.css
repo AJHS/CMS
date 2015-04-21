@@ -18,9 +18,9 @@ textarea {
   margin: 0 auto;
   position: relative;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
-  padding: 100px 0;
+  padding: 100px 0
 }
 .container {
   background-color: #FFF;
-  border-radius: 15px;
+  border-radius: 15px
 }
