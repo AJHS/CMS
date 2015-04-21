@@ -1,22 +1,26 @@
-label {
-    font-family: "PT Sans", sans-serif
+body {
+  font-family: "PT Sans", sans-serif
 }
-h2 {
-    text-align: center
+h1 {
+  text-align: center
 }
 textarea {
-    width: 100%
+  width: 100%
 }
-
-#home { 
-    background: url(../../../Resources/background.jpg) 50% 0 fixed; 
-    max-width:100%;
-    max-height:100%;
-    box-shadow: 0 0 50px rgba(0,0,0,0.8);
-    padding: 100px 0;
+.parallax {
+  background-color: #333333;
+  background-image: url(../../../Resources/background.jpg);
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+  padding: 100px 0;
 }
-
-.container{
-	background-color: #FFF;
-	border-radius: 15px;
+.container {
+  background-color: #FFF;
+  border-radius: 15px;
 }
