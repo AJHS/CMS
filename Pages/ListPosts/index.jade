@@ -1,14 +1,19 @@
 extends layout
 
 block resource
-  link(type="text/css" rel="stylesheet" href="css/style1.css")
-      
+  link(href="css/style.css" rel="stylesheet" type="text/css")
+
 block content
-  .container
-    h2= name
-  .container
-    each val in posts
-      .post
-        h2: a(href="http://www.google.com") val.title
-        h3: em val.sub
-      .line-seperator
+  .parallax
+    .container
+      .page-header
+        h2= name
+      each val in posts
+        .panel.panel-default
+          .panel-heading
+            a(href="http://www.google.com"): h2 val.title
+          .panel-body
+            h3= val.sub
+            
+  script(type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.min.js")
+  script(type="text/javascript" src="../SubmitPost/js/main.js")
