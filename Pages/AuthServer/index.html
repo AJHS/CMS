@@ -6,64 +6,69 @@
   <title>DB Test</title>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
   <style type="text/css">
     .container {
-      width: 50%
+      width: 40%;
     }
   </style>
 </head>
 
 <body>
-  <div class="container pull-left">
-    <div class="page-header">
-      <h2>Sign Up</h2>
+  <div class="parallax" data-speed="6">
+    <div class="container pull-left">
+      <div class="page-header">
+        <h2>Sign Up</h2>
+      </div>
+      <form method="post" action="/signup">
+        <div class="form-group">
+          <label>First name
+            <input type="text" name="fname" class="form-control" placeholder="John">
+          </label>
+        </div>
+        <div class="form-group">
+          <label>Last name
+            <input type="text" name="lname" class="form-control" placeholder="Smith">
+          </label>
+        </div>
+        <div class="form-group">
+          <label>Username
+            <input type="text" name="uname" class="form-control" placeholder="jsmith">
+          </label>
+        </div>
+        <div class="form-group">
+          <label>Password
+            <input type="password" name="passwd" class="form-control" placeholder="passWord123">
+          </label>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">Sign Up</button>
+        </div>
+      </form>
     </div>
-    <form method="post" action="/signup">
-      <div class="form-group">
-        <label>First name
-          <input type="text" name="fname" class="form-control" placeholder="John">
-        </label>
+    <div class="container pull-right">
+      <div class="page-header">
+        <h2>Login</h2>
       </div>
-      <div class="form-group">
-        <label>Last name
-          <input type="text" name="lname" class="form-control" placeholder="Smith">
-        </label>
-      </div>
-      <div class="form-group">
-        <label>Username
-          <input type="text" name="uname" class="form-control" placeholder="jsmith">
-        </label>
-      </div>
-      <div class="form-group">
-        <label>Password
-          <input type="password" name="passwd" class="form-control" placeholder="passWord123">
-        </label>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-default">Sign Up</button>
-      </div>
-    </form>
-  </div>
-  <div class="container pull-right">
-    <div class="page-header">
-      <h2>Login</h2>
+      <form method="post" action="/login">
+        <div class="form-group">
+          <label>Username
+            <input type="text" name="uname" class="form-control">
+          </label>
+        </div>
+        <div class="form-group">
+          <label>Password
+            <input type="password" name="passwd" class="form-control">
+          </label>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">Login</button>
+        </div>
+      </form>
     </div>
-    <form method="post" action="/login">
-      <div class="form-group">
-        <label>Username
-          <input type="text" name="uname" class="form-control">
-        </label>
-      </div>
-      <div class="form-group">
-        <label>Password
-          <input type="password" name="passwd" class="form-control">
-        </label>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-default">Login</button>
-      </div>
-    </form>
   </div>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
 </body>
 
 </html>
