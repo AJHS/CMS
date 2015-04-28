@@ -6,6 +6,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var passport = require('passport');
+var session = require('express-session');
+var RedisStore = require('connect-redis')(session);
+
 // CREATE APP AND SET UP THIRD PARTY MIDDLEWARE
 var app = express();
 
@@ -19,14 +23,27 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+require('./pass-config')(passport);
+app.use(session({
+    store: new RedisStore({ client: require('redis').createClient() }),
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+// app.use(require('connect-flash'));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ADD ROUTES TO MIDDLEWARE STACK
-var routes = require('fs').readdirSync(__dirname + '/routes');
+var routes = require('fs').readdirSync(path.join(__dirname, 'routes'));
 for (var i = 0; i < routes.length; i++) {
   var routeName = routes[i].slice(0, routes[i].lastIndexOf('.'));
   app.use('/' + ((routeName === 'index') ? '' : routeName), require('./routes/' + routeName));
 }
+
 /*
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
